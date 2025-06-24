@@ -7,7 +7,6 @@ int main() {
     char start[] = {"start"};
     char play[100];
     int yes = 0;
-    char difficult[10];
     
     printf("시작하려면 start를 입력해주세요!\n");
     scanf("\n%s", play);
@@ -18,12 +17,25 @@ int main() {
         }
     }
     if(yes==5){
+        char difficult[10];
         printf("게임을 시작합니다!\n");
         sleep(1);
         printf("난이도를 선택해주세요!\n");
         sleep(1);
         printf("easy\nnormal\nhard\n");
         scanf("%s", difficult);
+        if(strcmp(difficult, "easy")!=0&&strcmp(difficult, "normal")!=0&&strcmp(difficult, "hard")!=0){
+            printf("이건 존재하지 않는 난이도에요...");
+        }
+        else if(strcmp(difficult, "easy")==0){
+            printf("easy 난이도를 선택하셨어요!\n");
+        }
+        else if(strcmp(difficult, "normal")==0){
+            printf("normal 난이도를 선택하셨어요!\n");
+        }
+        else{
+            printf("hard 난이도를 선택하셨어요!\n");
+        }
     }
     else{
         printf("안녕히가세요!\n");
