@@ -115,54 +115,57 @@ int main() {
             int i;
             int clear;
             for(i = 20; i >= 1; ){
-                printf("-------------------------------------\n첫번째 수를 입력해주세요! (남은 기회 %d번)\n", i);
-                scanf("%d", &num);
-                if(num==random){
-                    usleep(500000);
-                    printf("축하해요! 하나를 맞추셨어요!\n");
-                    clear = 1;
-                    usleep(500000);
-                    for(i *= 2; i >= 1; i--){
-                        printf("-------------------------------------\n두번째 수를 입력해주세요! (남은 기회 %d번)\n", i);
-                        scanf("%d", &num);
-                        if(num==random2){
-                            printf("축하해요! 모든 정답을 맞추셨어요!\n");
-                            break;
+                if(clear != 1){
+                    printf("-------------------------------------\n첫번째 수를 입력해주세요! (남은 기회 %d번)\n", i);
+                    scanf("%d", &num);
+                    if(num==random && clear != 1){
+                        usleep(500000);
+                        printf("축하해요! 하나를 맞추셨어요!\n");
+                        clear = 1;
+                        usleep(500000);
+                        for(i = i; i >= 1; i--){
+                            printf("-------------------------------------\n두번째 수를 입력해주세요! (남은 기회 %d번)\n", i);
+                            scanf("%d", &num);
+                            if(num==random2){
+                                printf("축하해요! 모든 정답을 맞추셨어요!\n");
+                                break;
+                            }
+                            else if(num > 300 || num < 1){
+                                printf("뭐하세요..?\n");
+                                i--;
+                            }
+                            else if(num > random2){
+                                printf("그것보다 작아요!\n");
+                                i--;
+                            }
+                            else if(num < random2){
+                                printf("그것보다는 커요..\n");
+                                i--;
+                            }
                         }
-                        else if(num > 300 || num < 1){
-                            printf("뭐하세요..?\n");
-                            i--;
-                        }
-                        else if(num > random2){
-                            printf("그것보다 작아요!\n");
-                            i--;
-                        }
-                        else if(num < random2){
-                            printf("그것보다는 커요..\n");
-                            i--;
+                        if(i==0){
+                            printf("-------------------------------------\n저런.. 아쉽게됐네요.. 정답은 %d 였어요!\n", random2);
+                            break;                
                         }
                     }
-                    if(i==0){
-                        printf("-------------------------------------\n저런.. 아쉽게됐네요.. 정답은 %d 였어요!\n", random2);
-                        break;                
+                    else if(num > 300 || num < 1){
+                        printf("뭐하세요..?\n");
+                        i--;
+                    }
+                    else if(num > random){
+                        printf("그것보다 작아요!\n");
+                        i--;
+                    }
+                    else if(num < random){
+                        printf("그것보다는 커요..\n");
+                        i--;
                     }
                 }
-                else if(num > 300 || num < 1){
-                    printf("뭐하세요..?\n");
-                    i--;
-                }
-                else if(num > random){
-                    printf("그것보다 작아요!\n");
-                    i--;
-                }
-                else if(num < random){
-                    printf("그것보다는 커요..\n");
-                    i--;
-                }
-            }
             if(i==0 && clear != 1){
                 printf("-------------------------------------\n저런.. 아쉽게됐네요.. 정답은 %d과 %d 였어요!\n", random, random2);                   
             }
+        }
+                
         }
     }
     else{
