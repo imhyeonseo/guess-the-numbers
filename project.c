@@ -28,7 +28,7 @@ int main() {
         usleep(500000);
         printf("존재하지 않는 난이도를 선택하면 처음으로 돌아가서 다시 start를 입력하셔야해요!\n");
         usleep(500000);
-        printf("easy (1~50)\nnormal (1~100)\nhard (1~300)\n");
+        printf("--------------\neasy (1~50)\nnormal (1~100)\nhard (1~300)\n--------------\n");
         scanf("%s", difficult);
         if(strcmp(difficult, "easy")!=0&&strcmp(difficult, "normal")!=0&&strcmp(difficult, "hard")!=0){
             printf("이건 존재하지 않는 난이도에요...\n처음으로 돌아갑니다..\n");
@@ -44,7 +44,7 @@ int main() {
             random = rand()%50+1;
             int i;
             for(i = 15; i >= 1; i--){
-                printf("수를 입력해주세요! (남은 기회 %d번)\n", i);
+                printf("-------------------------------------\n수를 입력해주세요! (남은 기회 %d번)\n", i);
                 scanf("%d", &num);
                 if(num==random){
                     printf("축하해요! 정답을 맞추셨어요!\n");
@@ -61,7 +61,7 @@ int main() {
                 }
             }
             if(i==0){
-                printf("저런.. 아쉽게됐네요.. 정답은 %d 였어요!", random);                   
+                printf("-------------------------------------\n저런.. 아쉽게됐네요.. 정답은 %d 였어요!", random);                   
             }
 
         }
@@ -76,7 +76,7 @@ int main() {
             random = rand()%100+1;
             int i;
             for(i = 20; i >= 1; ){
-                printf("수를 입력해주세요! (남은 기회 %d번)\n", i);
+                printf("-------------------------------------\n수를 입력해주세요! (남은 기회 %d번)\n", i);
                 scanf("%d", &num);
                 if(num==random){
                     printf("축하해요! 정답을 맞추셨어요!\n");
@@ -96,7 +96,7 @@ int main() {
                 }
             }
             if(i==0){
-                printf("저런.. 아쉽게됐네요.. 정답은 %d 였어요!", random);                   
+                printf("-------------------------------------\n저런.. 아쉽게됐네요.. 정답은 %d 였어요!", random);                   
             }
         }
         else{
@@ -114,17 +114,16 @@ int main() {
             random2 = rand()%300+1;
             int i;
             int clear;
-            for(i = 15; i >= 1; ){
-                printf("첫번째 수를 입력해주세요! (남은 기회 %d번)\n", i);
+            for(i = 20; i >= 1; ){
+                printf("-------------------------------------\n첫번째 수를 입력해주세요! (남은 기회 %d번)\n", i);
                 scanf("%d", &num);
                 if(num==random){
                     usleep(500000);
                     printf("축하해요! 하나를 맞추셨어요!\n");
                     clear = 1;
-                    i--;
                     usleep(500000);
-                    for(i = i; i >= 1; i--){
-                        printf("두번째 수를 입력해주세요! (남은 기회 %d번)\n", i);
+                    for(i *= 2; i >= 1; i--){
+                        printf("-------------------------------------\n두번째 수를 입력해주세요! (남은 기회 %d번)\n", i);
                         scanf("%d", &num);
                         if(num==random2){
                             printf("축하해요! 모든 정답을 맞추셨어요!\n");
@@ -144,7 +143,7 @@ int main() {
                         }
                     }
                     if(i==0){
-                        printf("저런.. 아쉽게됐네요.. 정답은 %d 였어요!\n", random2);
+                        printf("-------------------------------------\n저런.. 아쉽게됐네요.. 정답은 %d 였어요!\n", random2);
                         break;                
                     }
                 }
@@ -162,12 +161,12 @@ int main() {
                 }
             }
             if(i==0 && clear != 1){
-                printf("저런.. 아쉽게됐네요.. 정답은 %d과 %d 였어요!\n", random, random2);                   
+                printf("-------------------------------------\n저런.. 아쉽게됐네요.. 정답은 %d과 %d 였어요!\n", random, random2);                   
             }
         }
     }
     else{
-        printf("안녕히가세요!\n");
+        printf("-------------------------------------\n안녕히가세요!\n");
     }
     return 0;
 }
